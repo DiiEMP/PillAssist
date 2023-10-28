@@ -79,10 +79,10 @@
                     <EditText
                         android:id="@+id/user"
                         android:inputType="textEmailAddress"
-                        android:hint="Usuario"
+                        android:hint="Correo"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/user"
+                        android:drawableLeft="@drawable/at"
                         android:drawablePadding="10dp"
                         android:drawableTint="#018DFE"
                         android:background="@null"
@@ -151,6 +151,7 @@
                 android:text="Crear cuenta"
                 android:fontFamily="sans-serif"
                 android:textColor="#018DFE"
+
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp">
             </Button>
