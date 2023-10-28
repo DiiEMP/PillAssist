@@ -79,7 +79,7 @@
                     <EditText
                         android:id="@+id/user"
                         android:inputType="textEmailAddress"
-                        android:hint="Usuario"
+                        android:hint="Correo"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/user"
