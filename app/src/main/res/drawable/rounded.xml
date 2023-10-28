@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E2F2FF" /> <!-- Color de fondo del CardView -->
+            <corners android:radius="0dp" /> <!-- Borde redondeado para todas las esquinas -->
+        </shape>
+    </item>
+    <item android:right="8dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E2F2FF" /> <!-- Color de fondo del CardView -->
+            <corners android:bottomRightRadius="8dp" /> <!-- Borde redondeado solo en la esquina inferior derecha -->
+        </shape>
+    </item>
+</layer-list>
