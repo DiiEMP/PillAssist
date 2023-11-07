@@ -36,6 +36,7 @@
                  android:layout_width="150dp"
                  android:layout_height="150dp"
                  android:src="@drawable/sinimagen"
+                 android:id="@+id/sinImagen"
                  />
              <Button
                  android:backgroundTint="#018DFE"
@@ -76,7 +77,7 @@
 
          <!-- Campo de texto con esquinas redondeadas -->
          <EditText
-             android:id="@+id/frecuencia"
+             android:id="@+id/tipoMed"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:hint="Tipo de Medicamento"
@@ -89,7 +90,7 @@
 
          <!-- Campo de texto con esquinas redondeadas -->
          <EditText
-             android:id="@+id/horaPrimeraDosis"
+             android:id="@+id/cadaCuanto"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:hint="Cada cuanto se tiene que tomar"
