@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "76480019928",
+    "project_id": "pillassist-13345",
+    "storage_bucket": "pillassist-13345.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76480019928:android:b5c6647e233dc49b1886ad",
+        "android_client_info": {
+          "package_name": "com.example.pillassist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQV84esXJOjzAsXomB_4HPDSLXX54rv1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
