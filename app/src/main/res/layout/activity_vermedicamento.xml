@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Vermedicamento"
+    android:padding="20dp">
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/sinimagen"
+            />
+        <Button
+            android:backgroundTint="#018DFE"
+            android:layout_marginTop="20dp"
+            android:id="@+id/editarImagenA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Galeria"
+            >
+
+        </Button>
+    </LinearLayout>
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/nombreMedicamentoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Medicamento" />
+
+    <EditText
+        android:id="@+id/dosisDiariaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Dosis que tocan al día" />
+
+    <EditText
+        android:id="@+id/frecuenciaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tipo de Medicamento" />
+
+    <EditText
+        android:id="@+id/lapsoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cada cuanto se tiene que tomar"
+        android:inputType="time"
+        />
+
+    <EditText
+        android:id="@+id/descripcionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción (Opcional)" />
+
+    <EditText
+        android:id="@+id/precioMA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Precio Mercado"/>
+   <LinearLayout
+       android:layout_marginTop="20dp"
+       android:gravity="center"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <Button
+           android:backgroundTint="#018DFE"
+
+           android:id="@+id/guardarC"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Guardar Cambios"
+           />
+   </LinearLayout>
+
+
+
+</LinearLayout>
