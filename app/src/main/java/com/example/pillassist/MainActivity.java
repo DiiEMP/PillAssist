@@ -38,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent is = new Intent(MainActivity.this, Calendario.class);
+                Intent is = new Intent(MainActivity.this, Second.class);
                 startActivity(is);
             }
         });
+
+
 
 
     }
