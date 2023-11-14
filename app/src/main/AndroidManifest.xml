@@ -15,9 +15,6 @@
         android:theme="@style/Theme.PillAssist"
         tools:targetApi="31">
         <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
             android:name=".Second"
             android:exported="false" />
         <activity
