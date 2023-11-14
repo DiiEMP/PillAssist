@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -87,10 +88,11 @@ public class RegisterMed extends AppCompatActivity {
     GaleriaMedicamentos galeria = new GaleriaMedicamentos();
     galeria.setId(UUID.randomUUID().toString());
     galeria.setNombre(nombreM);
-    galeria.setTipoMedicamento(tipoM);
-    galeria.setCadaCuanto(cadaC);
-    galeria.setDescripcion(descripcionM);
-    galeria.setPrecio(precioM);
+    galeria.setNombre(dosisM);
+    galeria.setNombre(tipoM);
+    galeria.setNombre(cadaC);
+    galeria.setNombre(descripcionM);
+    galeria.setNombre(precioM);
         Bitmap imageBitmap = ((BitmapDrawable) sinImagen.getDrawable()).getBitmap();
 
         // Convierte el Bitmap a un arreglo de bytes (byte[])

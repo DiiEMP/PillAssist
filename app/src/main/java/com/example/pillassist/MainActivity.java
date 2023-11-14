@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(ingresar);
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "Credenciales Incorrectas", Toast.LENGTH_SHORT).show();
+                    Intent is = new Intent(MainActivity.this, Second.class);
+                    startActivity(is);
+                    //Toast.makeText(MainActivity.this, "Credenciales Incorrectas", Toast.LENGTH_SHORT).show();
                 }
             }
         });

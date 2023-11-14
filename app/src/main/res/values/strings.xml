@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PillAssist</string>
+
+    <string name="calendario">Calendario</string>
+    <string name="listMedicamentos">Lista de medicamentos</string>
+    <string name="galeria">Galeria</string>
+    <string name="perfil">Perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
