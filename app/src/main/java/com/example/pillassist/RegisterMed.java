@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -34,7 +33,7 @@ public class RegisterMed extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     ImageView sinImagen;
-    Button registrar, agregarImagen;
+    Button registrar, agregarImagen, registros;
     EditText nombreMed, dosisMed, tipoMed, cadacunto, descripcion, precio;
     private static final int PICK_IMAGE = 100;
     String x;
@@ -52,7 +51,14 @@ public class RegisterMed extends AppCompatActivity {
         precio = findViewById(R.id.precioMA);
         sinImagen = findViewById(R.id.sinImagen);
         agregarImagen = findViewById(R.id.agregarImagenA);
-
+        registros = findViewById(R.id.registrosButton);
+        registros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterMed.this, EditarMed.class);
+                startActivity(intent);
+            }
+        });
         registrar = findViewById(R.id.registrarButton);
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +70,7 @@ public class RegisterMed extends AppCompatActivity {
                 cadaC= cadacunto.getText().toString();
                 descripcionM= descripcion.getText().toString();
                 precioM= precio.getText().toString();
-            registrarDatos(nombreM, dosisM,tipoM,cadaC,descripcionM,precioM);
+                registrarDatos(nombreM, dosisM,tipoM,cadaC,descripcionM,precioM);
             }
         });
 
@@ -78,14 +84,13 @@ public class RegisterMed extends AppCompatActivity {
     }
 
     private void registrarDatos(String nombreM, String dosisM, String tipoM, String cadaC, String descripcionM, String precioM) {
-    GaleriaMedicamentos galeria = new GaleriaMedicamentos();
-    galeria.setId(UUID.randomUUID().toString());
-    galeria.setNombre(nombreM);
-    galeria.setNombre(dosisM);
-    galeria.setNombre(tipoM);
-    galeria.setNombre(cadaC);
-    galeria.setNombre(descripcionM);
-    galeria.setNombre(precioM);
+        GaleriaMedicamentos galeria = new GaleriaMedicamentos();
+        galeria.setId(UUID.randomUUID().toString());
+        galeria.setNombre(nombreM);
+        galeria.setTipoMedicamento(tipoM);
+        galeria.setCadaCuanto(cadaC);
+        galeria.setDescripcion(descripcionM);
+        galeria.setPrecio(precioM);
         Bitmap imageBitmap = ((BitmapDrawable) sinImagen.getDrawable()).getBitmap();
 
         // Convierte el Bitmap a un arreglo de bytes (byte[])
@@ -151,12 +156,13 @@ public class RegisterMed extends AppCompatActivity {
     }
 
     public void limpiarDatos(){
+
         nombreMed.setText("");
         dosisMed.setText("");
         tipoMed.setText("");
         cadacunto.setText("");
         descripcion.setText("");
         precio.setText("");
-        sinImagen.setImageResource(R.drawable.sinimagen);
+        sinImagen.setImageResource(R.drawable.sinimagenn);
     }
 }

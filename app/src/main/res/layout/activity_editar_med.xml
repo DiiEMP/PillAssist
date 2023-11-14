@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".EditarMed">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tus medicamentos"
-        android:textSize="20sp"
-        android:textColor="#018DFE"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
-    <TextView
-        android:id="@+id/tusMedicamentos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tus medicamentos"
-        android:textSize="20sp"
-        android:textColor="#018DFE"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
-
-    <ListView
-        android:id="@+id/medicamentosListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tusMedicamentos"
-        android:layout_marginTop="20dp"
-        android:divider="#E2F2FF"
-        android:dividerHeight="1dp" />
+        android:layout_height="wrap_content"
+        android:text="Medicamentos"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#018DFE"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
-</RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="20dp"
+        android:id="@+id/galeriaMR"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>
