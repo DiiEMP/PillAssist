@@ -11,9 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    //Cambios de ventana
     Button crear, fpswd, ingresar;
     String valor = "";
+    @SuppressLint("MissingInflatedId")
     EditText correo, contrasena;
     @SuppressLint("MissingInflatedId")
     @Override
