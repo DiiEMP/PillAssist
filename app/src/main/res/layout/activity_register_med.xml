@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".RegisterMed">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+     <LinearLayout
+         android:padding="10dp"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical"
+         >
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Registro de medicamento nuevo"
+             android:textSize="20sp"
+             android:textColor="#018DFE"
+             android:layout_gravity="center"
+             android:layout_marginTop="20dp" />
+         <LinearLayout
+             android:layout_marginTop="20dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="center"
+             android:orientation="vertical"
+             >
+             <ImageView
+                 android:layout_width="150dp"
+                 android:layout_height="150dp"
+                 android:src="@drawable/sinimagen"
+                 android:id="@+id/sinImagen"
+                 />
+             <Button
+                 android:backgroundTint="#018DFE"
+                 android:layout_marginTop="20dp"
+                 android:id="@+id/agregarImagenA"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Galeria"
+                 >
+
+             </Button>
+         </LinearLayout>
+
+
+         <!-- Campo de texto con esquinas redondeadas -->
+         <EditText
+             android:id="@+id/nombreMedicamento"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Nombre del Medicamento"
+             android:layout_marginTop="10dp"
+             android:backgroundTint="#FFFFFF"
+             android:padding="10dp"
+             android:radius="10dp" />
+
+         <!-- Campo de texto con esquinas redondeadas -->
+         <EditText
+             android:id="@+id/dosisDiaria"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:inputType="number"
+             android:hint="Dosis que tocan al día"
+             android:layout_marginTop="10dp"
+             android:backgroundTint="#FFFFFF"
+             android:padding="10dp"
+             android:radius="10dp"
+             />
+
+         <!-- Campo de texto con esquinas redondeadas -->
+         <EditText
+             android:id="@+id/tipoMed"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Tipo de Medicamento"
+             android:layout_marginTop="10dp"
+             android:backgroundTint="#FFFFFF"
+             android:padding="10dp"
+             android:radius="10dp" />
+
+
+
+         <!-- Campo de texto con esquinas redondeadas -->
+         <EditText
+             android:id="@+id/cadaCuanto"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Cada cuanto se tiene que tomar"
+             android:layout_marginTop="10dp"
+             android:backgroundTint="#FFFFFF"
+             android:inputType="time"
+             android:padding="10dp"
+             android:radius="10dp" />
+
+         <!-- Campo de texto con esquinas redondeadas -->
+         <EditText
+             android:id="@+id/descripcion"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Descripción (Opcional)"
+             android:layout_marginTop="10dp"
+             android:backgroundTint="#FFFFFF"
+             android:padding="10dp"
+             android:radius="10dp" />
+         <EditText
+             android:id="@+id/precioMA"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:inputType="numberDecimal"
+             android:hint="Precio Mercado"
+             android:layout_marginTop="10dp"
+             android:backgroundTint="#FFFFFF"
+             android:padding="10dp"
+             android:radius="10dp"
+             />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <Button
+                android:id="@+id/registrarButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registrar"
+                android:fontFamily="sans-serif"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#018DFE"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:radius="50dp" />
+
+            <Button
+                android:id="@+id/registrosButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registros"
+                android:fontFamily="sans-serif"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#018DFE"
+                android:layout_gravity="center"
+
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:radius="50dp" />
+        </LinearLayout>
+
+     </LinearLayout>
+   </ScrollView>
+</LinearLayout>

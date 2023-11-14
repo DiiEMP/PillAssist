@@ -21,6 +21,15 @@
             android:name=".Second"
             android:exported="false" />
         <activity
+            android:name=".Vermedicamento"
+            android:exported="false" />
+        <activity
+            android:name=".EditarMed"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterMed"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
