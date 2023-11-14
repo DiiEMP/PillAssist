@@ -26,6 +26,7 @@ public class EditarMed extends AppCompatActivity {
 
     List<GaleriaMedicamentos> galeria = new ArrayList<>();
     private GaleriaM_Adaptador galeriaMAdaptador;
+    //editarMed
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
