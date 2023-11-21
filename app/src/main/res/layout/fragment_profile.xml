@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
 
-    <ImageButton
-        android:id="@+id/changePhoto"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/top_background" />
-
     <ImageView
-        android:id="@+id/imgProfile"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="@drawable/top_background"/>
+
+    <ImageButton
+        android:id="@+id/abrirGaleria"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:background="@drawable/image_va"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/textNombreApellido"
@@ -28,20 +28,19 @@
         android:textSize="20dp"
         android:fontFamily="sans-serif-black"
         android:textColor="@color/white"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="160dp"/>
 
-    <TextView
-        android:id="@+id/textEmail"
+    <Button
+        android:id="@+id/tomarFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="15dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="Tomar foto"
         android:fontFamily="sans-serif"
         android:textColor="@color/white"
-        android:layout_below="@id/textNombreApellido"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="160dp"/>
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="135dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,9 +48,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="380dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="150dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/bottom_background"
             android:elevation="5dp"
@@ -59,63 +58,91 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fecha de nacimiento"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-black"/>
+                android:fontFamily="sans-serif-black"
+                android:text="Fecha de nacimiento"
+                android:textSize="15dp" />
+
             <TextView
+                android:id="@+id/txtNacimiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="11dp"
+                android:fontFamily="sans-serif"
                 android:text="DD/MM/YYYY"
-                android:layout_marginLeft="10dp"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif"
-                android:layout_marginTop="11dp"/>
+                android:textSize="15dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-black"
                 android:text="Edad"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-black"/>
+                android:textSize="15dp" />
+
             <TextView
+                android:id="@+id/txtEdad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="# años"
                 android:layout_marginLeft="10dp"
-                android:textSize="15dp"
+                android:layout_marginTop="11dp"
                 android:fontFamily="sans-serif"
-                android:layout_marginTop="11dp" />
+                android:text="# años"
+                android:textSize="15dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contraseña"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-black"/>
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Correo electrónico"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="11dp"
+                android:fontFamily="sans-serif"
+                android:text="email@email.com"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Contraseña"
+                android:textSize="15dp" />
+
             <Button
                 android:id="@+id/changePswd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="-13dp"
                 android:backgroundTint="@android:color/transparent"
-                android:text="Cambiar"
                 android:fontFamily="sans-serif"
-                android:textColor="@color/black"
-                android:layout_marginStart="-13dp"/>
+                android:text="Cambiar"
+                android:textColor="@color/black" />
+
             <Button
+                android:id="@+id/guardarCambios"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
                 android:backgroundTint="#018DFE"
-                android:text="Guardar cambios"
-                android:fontFamily="sans-serif"/>
+                android:fontFamily="sans-serif"
+                android:text="Guardar cambios" />
 
         </LinearLayout>
 
@@ -131,7 +158,6 @@
         android:textColor="#018DFE"
         android:layout_marginStart="-13dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="550dp"/>
-
+        android:layout_marginTop="540dp"/>
 
 </RelativeLayout>

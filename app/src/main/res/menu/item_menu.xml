@@ -5,6 +5,10 @@
         android:title="Calendario"
         android:icon="@drawable/calendar_va"/>
 
+    <!--<item android:id="@+id/nav_gps"
+        android:title="Gps"
+        android:icon="@drawable/map_va"/> -->
+
     <item android:id="@+id/nav_lista"
         android:title="Lista"
         android:icon="@drawable/list_va"/>

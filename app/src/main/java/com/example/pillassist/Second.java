@@ -1,6 +1,7 @@
 package com.example.pillassist;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -17,6 +18,7 @@ public class Second extends AppCompatActivity {
 
 
     BottomNavigationView navigationView;
+    public static String correoElect, contra;
 
 
     @Override
@@ -29,6 +31,10 @@ public class Second extends AppCompatActivity {
         navigationView = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new CalendarFragment()). commit();
         navigationView.setSelectedItemId(R.id.nav_calendario);
+        //navigationView.setSelectedItemId(R.id.nav_gps);
+
+        Intent intent = getIntent();
+        correoElect = intent.getStringExtra("correo");
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -37,6 +43,8 @@ public class Second extends AppCompatActivity {
 
                 if (item.getItemId() == R.id.nav_calendario) {
                     fragment = new CalendarFragment();
+                //if (item.getItemId() == R.id.nav_gps) {
+                    //fragment = new GpsFragment();
                 } else if (item.getItemId() == R.id.nav_lista) {
                     fragment = new ListFragment();
                 } else if (item.getItemId() == R.id.nav_galeria) {

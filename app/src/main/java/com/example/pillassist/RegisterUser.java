@@ -23,6 +23,10 @@ public class RegisterUser {
         this.edad = edad;
     }
 
+    //Se creó
+    public RegisterUser(String name, String email, String contrasenia, String fechaNac) {
+    }
+
     public String getIdUser() {
         return idUser;
     }
