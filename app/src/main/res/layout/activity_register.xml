@@ -152,19 +152,31 @@
                             android:layout_height="match_parent"
                             android:gravity="center">
                             <EditText
-                                android:id="@+id/fechaNac"
-                                android:inputType="date"
-                                android:hint="Fecha de nacimiento"
+                                android:id="@+id/fechaNacimiento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="invisible"
+                            />
+                            <Button
+                                android:id="@+id/btnfechaNacimiento"
                                 android:layout_width="350dp"
                                 android:layout_height="wrap_content"
+                                android:text="Fecha de nacimiento"
                                 android:drawableLeft="@drawable/calendario"
-                                android:drawablePadding="10dp"
-                                android:drawableTint="#018DFE"
-                                android:background="@null"
+                                android:backgroundTint="@color/blue_light"
                                 android:paddingLeft="15dp"
-                                android:fontFamily="sans-serif"/>
+                                android:fontFamily="sans-serif"
+                                android:textSize="15dp"
+                                android:drawableTint="#018DFE"
+                                android:textColor="@color/gray_dark"
+                                style="?android:spinnerStyle"
+                                android:onClick="openDatePicker"
+                                />
+
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
+
 
                     <LinearLayout
 
