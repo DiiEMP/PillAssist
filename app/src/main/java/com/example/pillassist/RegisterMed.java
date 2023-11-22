@@ -35,7 +35,7 @@ public class RegisterMed extends AppCompatActivity {
     DatabaseReference databaseReference;
     ImageView sinImagen;
     Button registrar, agregarImagen, registros;
-    EditText nombreMed, dosisMed, tipoMed, cadacunto, descripcion, precio;
+    EditText nombreMed,tipoMed, cadacunto, descripcion, precio;
     private static final int PICK_IMAGE = 100;
     String x;
     @SuppressLint("MissingInflatedId")
@@ -45,7 +45,7 @@ public class RegisterMed extends AppCompatActivity {
         setContentView(R.layout.activity_register_med);
         inicializarConexion();
         nombreMed = findViewById(R.id.nombreMedicamento);
-        dosisMed = findViewById(R.id.dosisDiaria);
+
         tipoMed = findViewById(R.id.tipoMed);
         cadacunto = findViewById(R.id.cadaCuanto);
         descripcion = findViewById(R.id.descripcion);
@@ -64,14 +64,13 @@ public class RegisterMed extends AppCompatActivity {
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombreM, dosisM,tipoM,cadaC, descripcionM, precioM;
+                String nombreM,tipoM,cadaC, descripcionM, precioM;
                 nombreM= nombreMed.getText().toString();
-                dosisM= dosisMed.getText().toString();
                 tipoM= tipoMed.getText().toString();
                 cadaC= cadacunto.getText().toString();
                 descripcionM= descripcion.getText().toString();
                 precioM= precio.getText().toString();
-            registrarDatos(nombreM, dosisM,tipoM,cadaC,descripcionM,precioM);
+            registrarDatos(nombreM,tipoM,cadaC,descripcionM,precioM);
             }
         });
 
@@ -84,15 +83,14 @@ public class RegisterMed extends AppCompatActivity {
         });
     }
 
-    private void registrarDatos(String nombreM, String dosisM, String tipoM, String cadaC, String descripcionM, String precioM) {
+    private void registrarDatos(String nombreM,String tipoM, String cadaC, String descripcionM, String precioM) {
     GaleriaMedicamentos galeria = new GaleriaMedicamentos();
     galeria.setId(UUID.randomUUID().toString());
     galeria.setNombre(nombreM);
-    galeria.setNombre(dosisM);
-    galeria.setNombre(tipoM);
-    galeria.setNombre(cadaC);
-    galeria.setNombre(descripcionM);
-    galeria.setNombre(precioM);
+    galeria.setTipoMedicamento(tipoM);
+    galeria.setCadaCuanto(cadaC);
+    galeria.setDescripcion(descripcionM);
+    galeria.setPrecio(precioM);
         Bitmap imageBitmap = ((BitmapDrawable) sinImagen.getDrawable()).getBitmap();
 
         // Convierte el Bitmap a un arreglo de bytes (byte[])
@@ -160,7 +158,6 @@ public class RegisterMed extends AppCompatActivity {
     public void limpiarDatos(){
 
         nombreMed.setText("");
-        dosisMed.setText("");
         tipoMed.setText("");
         cadacunto.setText("");
         descripcion.setText("");

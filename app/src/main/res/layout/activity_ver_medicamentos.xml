@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerMedicamentos">
+    <androidx.appcompat.widget.Toolbar
+        android:background="#018DFE"
+        app:title="Nombre del Medicamento"
+        app:titleTextColor="@color/white"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content">
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imagenM"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sinimagen"
+                android:layout_width="200dp"
+                android:layout_height="200dp">
+            </ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripción:"
+                android:textSize="25dp"
+                />
+            <TextView
+                android:text="....."
+                android:textSize="15dp"
+                android:id="@+id/descripcionG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+            </TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Tipo Medicamento:"
+                android:textSize="25dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Tipo Medicamento:"
+                android:textSize="15dp"
+                android:id="@+id/tipoMed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Cada Cuanto se toma:"
+                android:textSize="25dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Cada Cuanto"
+                android:textSize="15dp"
+                android:id="@+id/cadaCuantoM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Precio:"
+                android:textSize="25dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="precio"
+                android:textSize="15dp"
+                android:id="@+id/precioM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

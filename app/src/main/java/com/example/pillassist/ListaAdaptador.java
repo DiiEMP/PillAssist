@@ -4,49 +4,47 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+
 
 import java.util.List;
 
-public class GaleriaM_Adaptador extends RecyclerView.Adapter<GaleriaM_Adaptador.ViewHolder> {
+public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHolder> {
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView nombre, descripcion;
-        private ImageView imagenMedicamentoG;
+        private TextView nombre, cadaCuando;
         public ViewHolder(View itemView){
             super(itemView);
-            nombre=itemView.findViewById(R.id.nombreMedicamentoG);
-            descripcion=itemView.findViewById(R.id.descripcionMedicamentoG);
-            imagenMedicamentoG=itemView.findViewById(R.id.imagenMedicamentoG);
+            nombre = itemView.findViewById(R.id.nombreCardRecordatorio);
+            cadaCuando = itemView.findViewById(R.id.horaCardRecordatorio);
+
         }
-
     }
-    public List<GaleriaMedicamentos>galeriaList;
-    private Context context;
 
-    public GaleriaM_Adaptador(Context context,List<GaleriaMedicamentos> galeriaList){
-        this.galeriaList = galeriaList;
+    public List<ListaMedicamentos> listaMedicamentos;
+    private Context context;
+    public ListaAdaptador(Context context,List<ListaMedicamentos> galeriaList){
+        this.listaMedicamentos = galeriaList;
         this.context = context;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.cardmedicamentos,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_recordatorio,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GaleriaM_Adaptador.ViewHolder holder, int position) {
-        holder.nombre.setText(galeriaList.get(position).getNombre());
-        holder.descripcion.setText(galeriaList.get(position).getDescripcion());
-        Glide.with(context).load(galeriaList.get(position).getImagen()).into(holder.imagenMedicamentoG);
+    public void onBindViewHolder(@NonNull ListaAdaptador.ViewHolder holder, int position) {
+        holder.nombre.setText(listaMedicamentos.get(position).getNombreLista());
+        holder.cadaCuando.setText(listaMedicamentos.get(position).getCadaCuandoLista());
+        //Glide.with(context).load(galeriaList.get(position).getImagen()).into(holder.imagenMedicamentoG);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +59,7 @@ public class GaleriaM_Adaptador extends RecyclerView.Adapter<GaleriaM_Adaptador.
     @Override
     public int getItemCount() {
 
-        return galeriaList.size();
+        return listaMedicamentos.size();
     }
 
     public interface OnItemClickListener {
@@ -72,5 +70,6 @@ public class GaleriaM_Adaptador extends RecyclerView.Adapter<GaleriaM_Adaptador.
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
+
 
 }

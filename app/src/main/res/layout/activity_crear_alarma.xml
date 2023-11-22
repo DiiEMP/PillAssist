@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CrearAlarma">
+    <androidx.appcompat.widget.Toolbar
+        android:background="#018DFE"
+        app:title="Crear Recordatorio"
+        app:titleTextColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </androidx.appcompat.widget.Toolbar>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:orientation="vertical"
+           android:padding="20dp"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Nombre del Medicamento"
+               android:textSize="25dp"
+               />
+
+           <EditText
+               android:id="@+id/nombreMedicamneto"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="text"></EditText>
+
+           <TextView
+               android:layout_marginTop="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Hora del recordatorio"
+               android:textSize="25dp"
+               />
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:weightSum="3"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                   <TextView
+                       android:textSize="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Cada"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_weight="1"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/horaRecordatorio"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </EditText>
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                   <TextView
+                       android:textSize="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Horas"
+                       />
+               </LinearLayout>
+
+           </LinearLayout>
+           <TextView
+               android:layout_marginTop="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Dosis"
+               android:textSize="25dp"
+               />
+           <EditText
+               android:id="@+id/dosisRecordatorio"
+               android:inputType="number"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+           </EditText>
+           <TextView
+               android:layout_marginTop="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Descripción"
+               android:textSize="25dp"
+               />
+           <EditText
+               android:id="@+id/descripcionRecordatorio"
+               android:inputType="text"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+             </EditText>
+           <LinearLayout
+               android:layout_marginTop="20dp"
+               android:gravity="center"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <Button
+                   android:id="@+id/crearRecordatorio"
+                   android:backgroundTint="#018DFE"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Crear recordatorio"
+                   ></Button>
+           </LinearLayout>
+
+</LinearLayout>
+   </ScrollView>
+
+</LinearLayout>

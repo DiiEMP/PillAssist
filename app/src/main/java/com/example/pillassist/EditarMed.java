@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -44,47 +46,46 @@ public class EditarMed extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference();
     }
     private void listarDatos(Context context){
-        databaseReference.child("GaleriaMedicamentos").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot objSnapshot: snapshot.getChildren()){
-                    GaleriaMedicamentos galeriaMedicamentos = objSnapshot.getValue(GaleriaMedicamentos.class);
-                    galeria.add(new GaleriaMedicamentos(galeriaMedicamentos.getId(),galeriaMedicamentos.getNombre(),galeriaMedicamentos.getImagen(),galeriaMedicamentos.getTipoMedicamento(),galeriaMedicamentos.getCadaCuanto(),galeriaMedicamentos.getDescripcion(),galeriaMedicamentos.getPrecio()));
-                    galeriaMAdaptador = new GaleriaM_Adaptador(context,galeria);
-                    recyclerView.setAdapter(galeriaMAdaptador);
+       databaseReference.child("GaleriaMedicamentos").addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot snapshot) {
+               for(DataSnapshot objSnapshot: snapshot.getChildren()){
+                   GaleriaMedicamentos g = objSnapshot.getValue(GaleriaMedicamentos.class);
+                   galeria.add(new GaleriaMedicamentos(g.getId(),g.getNombre(),g.getImagen(),g.getTipoMedicamento(),g.getCadaCuanto(),g.getDescripcion(),g.getPrecio()));
+                   galeriaMAdaptador = new GaleriaM_Adaptador(context,galeria);
+                   recyclerView.setAdapter(galeriaMAdaptador);
+                   galeriaMAdaptador.setOnItemClickListener(new GaleriaM_Adaptador.OnItemClickListener() {
+                       @Override
+                       public void onItemClick(int position) {
+                           GaleriaMedicamentos galeriaM=galeria.get(position);
+                           String idM=galeriaM.getId();
+                           String nombre=galeriaM.getNombre();
+                           String imagen=galeriaM.getImagen();
+                           String tipoM=galeriaM.getTipoMedicamento();
+                           String cadaC=galeriaM.getCadaCuanto();
+                           String descripcion=galeriaM.getDescripcion();
+                           String precio=galeriaM.getPrecio();
 
-                    galeriaMAdaptador.setOnItemClickListener(new GaleriaM_Adaptador.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(int position) {
-                            GaleriaMedicamentos galeriaM = galeria.get(position);
-                            String idM = galeriaM.getId();
-                            String nombre = galeriaM.getNombre();
-                            String imagen = galeriaM.getImagen();
-                            String tipoM = galeriaM.getTipoMedicamento();
-                            String cadaC = galeriaM.getCadaCuanto();
-                            String descripcion = galeriaM.getDescripcion();
-                            String precio = galeriaM.getPrecio();
+                           Intent intent=new Intent(EditarMed.this,Vermedicamento.class);
+                           intent.putExtra("id",idM);
+                           intent.putExtra("nombre",nombre);
+                           intent.putExtra("imagen",imagen);
+                           intent.putExtra("tipoM",tipoM);
+                           intent.putExtra("cadaC",cadaC);
+                           intent.putExtra("descripcion",descripcion);
+                           intent.putExtra("precio",precio);
+                           startActivity(intent);
+                           finish();
 
-                            Intent intent = new Intent(EditarMed.this, Vermedicamento.class);
-                            intent.putExtra("id",idM);
-                            intent.putExtra("nombre",nombre);
-                            intent.putExtra("imagen",imagen);
-                            intent.putExtra("tipoM",tipoM);
-                            intent.putExtra("cadaC",cadaC);
-                            intent.putExtra("descripcion",descripcion);
-                            intent.putExtra("precio",precio);
-                            startActivity(intent);
+                       }
+                   });
+               }
+           }
 
-                        }
-                    });
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
+               Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+           }
+       });
     }
 }

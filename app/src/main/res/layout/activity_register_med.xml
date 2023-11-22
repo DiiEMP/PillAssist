@@ -62,18 +62,6 @@
              android:padding="10dp"
              android:radius="10dp" />
 
-         <!-- Campo de texto con esquinas redondeadas -->
-         <EditText
-             android:id="@+id/dosisDiaria"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:inputType="number"
-             android:hint="Dosis que tocan al día"
-             android:layout_marginTop="10dp"
-             android:backgroundTint="#FFFFFF"
-             android:padding="10dp"
-             android:radius="10dp"
-             />
 
          <!-- Campo de texto con esquinas redondeadas -->
          <EditText
