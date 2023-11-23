@@ -15,7 +15,7 @@ String id ;
 EditText nombreMedicamento, horaRecordatorio,dosisRecordatorio,descripcionRecordatorio;
 Button crear;
 String nombre, horaR,dosisR,descripcionR;
-
+        //Consulta de Id
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
