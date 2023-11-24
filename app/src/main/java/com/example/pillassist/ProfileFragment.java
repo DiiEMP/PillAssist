@@ -50,6 +50,7 @@ public class ProfileFragment extends Fragment {
     String id;
     String x;
     Button takePhoto;
+    Button cambiarContra;
     private static final int PICK_IMAGE = 100;
     private static final int REQUEST_IMAGE_CAPTURE = 101;
 
@@ -94,6 +95,13 @@ public class ProfileFragment extends Fragment {
         idusuario();
         mostrarDatos(datosUser);
 
+        cambiarContra = view.findViewById(R.id.changePswd);
+        cambiarContra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
 
 
@@ -101,6 +109,7 @@ public class ProfileFragment extends Fragment {
 
         return view;
     }
+
 
     private void inicializarFB() {
         FirebaseApp.initializeApp(getActivity());
