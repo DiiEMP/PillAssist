@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,15 +43,14 @@ public class ProfileFragment extends Fragment {
     FirebaseDatabase firebaseDatabase, firebaseDatabase2;
     DatabaseReference databaseReference, databaseReference2;
     ImageButton abrirG;
-    //ImageView imagenP;
     TextView nomApe, correoE, nacimiento, edad;
     ImageButton sinImagen;
-
+    String changepswd;
     String datosUser = Second.correoElect;
     String id;
     String x;
     Button takePhoto;
-    Button cambiarContra;
+    Button cambiarContra, cerrarSesion;
     private static final int PICK_IMAGE = 100;
     private static final int REQUEST_IMAGE_CAPTURE = 101;
 
@@ -99,7 +99,20 @@ public class ProfileFragment extends Fragment {
         cambiarContra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CambiarContrasenaProfile.class);
+                startActivity(intent);
+            }
+        });
 
+        cerrarSesion = view.findViewById(R.id.cerrarSesionP);
+        cerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -145,7 +158,6 @@ public class ProfileFragment extends Fragment {
 
 
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
