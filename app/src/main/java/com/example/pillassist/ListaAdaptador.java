@@ -26,10 +26,10 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
     }
 
     public List<ListaMedicamentos> listaMedicamentos;
-    private Context context;
-    public ListaAdaptador(Context context,List<ListaMedicamentos> galeriaList){
+
+    public ListaAdaptador(List<ListaMedicamentos> galeriaList){
         this.listaMedicamentos = galeriaList;
-        this.context = context;
+
     }
     @NonNull
     @Override
@@ -43,7 +43,7 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ListaAdaptador.ViewHolder holder, int position) {
         holder.nombre.setText(listaMedicamentos.get(position).getNombreLista());
-        holder.cadaCuando.setText(listaMedicamentos.get(position).getCadaCuandoLista());
+        holder.cadaCuando.setText(listaMedicamentos.get(position).getDescripcionLista());
         //Glide.with(context).load(galeriaList.get(position).getImagen()).into(holder.imagenMedicamentoG);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

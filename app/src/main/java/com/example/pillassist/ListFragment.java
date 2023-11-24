@@ -6,7 +6,10 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +22,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ListFragment extends Fragment {
     ImageButton imageButton;
     String correoUsuario = Second.correoElect;
     String id;
-    private DatabaseReference databaseReference;
+    RecyclerView recyclerViewLista;
+    private DatabaseReference databaseReference, databaseReference2;
+    List<ListaMedicamentos> lista = new ArrayList<>();
+    private ListaAdaptador listaAdaptador;
 
     public ListFragment() {
         // Required empty public constructor
@@ -37,11 +46,16 @@ public class ListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         imageButton = view.findViewById(R.id.agregarAlarma);
+        recyclerViewLista = view.findViewById(R.id.recyclerLista);
+
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Usuarios");
-        mostrarListaMedicamentos(correoUsuario);
-        consultarId(correoUsuario);
+        FirebaseDatabase firebaseDatabase2 = FirebaseDatabase.getInstance();
+        databaseReference2 = firebaseDatabase2.getReference("ListaMedicamentos");
 
+        consultarId(correoUsuario);
+        recyclerViewLista.setLayoutManager(new LinearLayoutManager(getActivity()));
+       // mostrarListaMedicamentos();
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,33 +82,45 @@ public class ListFragment extends Fragment {
                     for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                         id = dataSnapshot.child("idUser").getValue(String.class);
                     }
+                    mostrarListaMedicamentos();
+                } else {
+                    Toast.makeText(getActivity(), "Usuario No encontrado", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getActivity(), "Error al cargar", Toast.LENGTH_SHORT).show();
             }
 
         });
 
     }
 
-    private void mostrarListaMedicamentos(String correoUsuario) {
-        databaseReference.orderByChild("email").equalTo(correoUsuario).addListenerForSingleValueEvent(new ValueEventListener() {
+    private void mostrarListaMedicamentos() {
+        databaseReference2.orderByChild("idUsuario").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    Toast.makeText(getActivity(), "Correo Encontrado", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(getActivity(), "Erro Correo No encontrado", Toast.LENGTH_SHORT).show();
-                }
+
+                    for (DataSnapshot objSnapshot: snapshot.getChildren()){
+                        ListaMedicamentos list = objSnapshot.getValue(ListaMedicamentos.class);
+                        Log.d("DATOS:", list.getIdUsuario());
+                        lista.add(new ListaMedicamentos(list.getIdLista(),list.getNombreLista(),list.getCadaCuandoLista(),list.getIdUsuario(),list.getDescripcionLista(),list.getDosisLista()));
+                    }
+                listaAdaptador = new ListaAdaptador(lista);
+                recyclerViewLista.setAdapter(listaAdaptador);
+                listaAdaptador.setOnItemClickListener(new ListaAdaptador.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+
+                    }
+                });
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
     }
