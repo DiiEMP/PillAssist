@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CambiarContrasenaProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/actualizar2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cambiar contraseña"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#018DFE"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esta contraseña debe ser diferente a tu antigua contraseña."
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="30dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="30dp"
+        android:backgroundTint="#E2F2FF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/contraactual"
+                android:inputType="textPassword"
+                android:hint="Contraseña actual"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/contra"
+                android:drawablePadding="10dp"
+                android:drawableTint="#018DFE"
+                android:background="@null"
+                android:paddingLeft="15dp"
+                android:fontFamily="sans-serif"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="30dp"
+        android:backgroundTint="#E2F2FF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/newPswd"
+                android:inputType="textPassword"
+                android:hint="Nueva contraseña"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/contra"
+                android:drawablePadding="10dp"
+                android:drawableTint="#018DFE"
+                android:background="@null"
+                android:paddingLeft="15dp"
+                android:fontFamily="sans-serif"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="30dp"
+        android:backgroundTint="#E2F2FF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/confirmNewPswd"
+                android:inputType="textPassword"
+                android:hint="Confirmar contraseña"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/contra"
+                android:drawablePadding="10dp"
+                android:drawableTint="#018DFE"
+                android:background="@null"
+                android:paddingLeft="15dp"
+                android:fontFamily="sans-serif"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/btnGuardarCambios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#018DFE"
+        android:layout_marginTop="20dp"
+        android:text="GUARDAR"
+        android:fontFamily="sans-serif"
+        android:layout_gravity="center"
+        android:onClick="guardarCambio"/>
+
+
+</LinearLayout>
+
+

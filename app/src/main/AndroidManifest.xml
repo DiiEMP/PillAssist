@@ -25,6 +25,9 @@
             android:name=".VerMedicamentos"
             android:exported="false" />
         <activity
+            android:name=".CambiarContrasenaProfile"
+            android:exported="false" />
+        <activity
             android:name=".Second"
             android:exported="false" />
         <activity

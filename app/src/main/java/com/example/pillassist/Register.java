@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -156,7 +157,46 @@ public class Register extends AppCompatActivity {
     }
 
     public void registrarUser(String nombreU, String emailU, String contraseniaU, String fechaNacU) {
-        RegisterUser regUsr = new RegisterUser();
+        if (nombreU.trim().isEmpty() || emailU.trim().isEmpty() || contraseniaU.trim().isEmpty() || fechaNacU.trim().isEmpty()) {
+            Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (nombreU.matches(".*\\d.*") || !nombreU.matches("[a-zA-Z\\s]+")) {
+            Toast.makeText(this, "Por favor, ingrese un nombre válido sin números ni signos.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!isValidDate(fechaNacU)) {
+            Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // Verificar si el correo ya está registrado
+        correoRegistrado(emailU, new OnCorreoVerificadoListener() {
+            @Override
+            public void onCorreoVerificado(boolean correoExistente) {
+                if (correoExistente) {
+                    Toast.makeText(getApplicationContext(), "Este correo ya ha sido registrado. Por favor, ingrese otro correo.", Toast.LENGTH_SHORT).show();
+                } else {
+                    // El correo no está registrado, procede con el registro
+                    RegisterUser regUsr = new RegisterUser();
+                    regUsr.setIdUser(UUID.randomUUID().toString());
+                    regUsr.setName(nombreU);
+                    regUsr.setEmail(emailU);
+                    regUsr.setContrasenia(contraseniaU);
+                    regUsr.setFechaNac(fechaNacU);
+
+                    // Calcular la edad
+                    int edad = calcularEdad(fechaNacU);
+                    regUsr.setEdad(String.valueOf(edad));
+
+                    // Guardar en la base de datos
+                    databaseReference.child("Usuarios").child(regUsr.getIdUser()).setValue(regUsr);
+                    Toast.makeText(getApplicationContext(), "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        /*RegisterUser regUsr = new RegisterUser();
         regUsr.setIdUser(UUID.randomUUID().toString());
         regUsr.setName(nombreU);
         regUsr.setEmail(emailU);
@@ -169,9 +209,50 @@ public class Register extends AppCompatActivity {
 
         // Guardar en la base de datos
         databaseReference.child("Usuarios").child(regUsr.getIdUser()).setValue(regUsr);
-        Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();*/
 
 
+    }
+
+    private void correoRegistrado(String correo, OnCorreoVerificadoListener listener) {
+        // Consultar la base de datos para verificar si el correo ya está registrado
+        DatabaseReference usuariosRef = databaseReference.child("Usuarios");
+        usuariosRef.orderByChild("email").equalTo(correo).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                boolean correoExistente = dataSnapshot.exists();
+                listener.onCorreoVerificado(correoExistente);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Error al consultar la base de datos: " + databaseError.getMessage());
+            }
+        });
+    }
+
+    interface OnCorreoVerificadoListener {
+        void onCorreoVerificado(boolean correoExistente);
+    }
+
+
+    private boolean isValidDate(String fecha) {
+        try {
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH) + 1; // Sumar 1 porque enero es 0
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            String[] parts = fecha.split("/");
+            int yearOfBirth = Integer.parseInt(parts[2]);
+            int monthOfBirth = Integer.parseInt(parts[1]);
+            int dayOfBirth = Integer.parseInt(parts[0]);
+
+            return yearOfBirth < year || (yearOfBirth == year && monthOfBirth < month) || (yearOfBirth == year && monthOfBirth == month && dayOfBirth <= day);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Manejar errores o retornar un valor predeterminado en caso de error
+        }
     }
 
     private void limpiarDatos() {
