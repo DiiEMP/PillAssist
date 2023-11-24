@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E2F2FF"
+    tools:context=".RegistroMed">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro de medicamento nuevo"
+        android:textSize="20sp"
+        android:textColor="#018DFE"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp" />
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <EditText
+        android:id="@+id/idMedicamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID de Medicamento"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+    android:padding="10dp"
+    android:radius="10dp" />
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <EditText
+        android:id="@+id/nombreMedicamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Medicamento"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+    android:padding="10dp"
+    android:radius="10dp" />
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <EditText
+        android:id="@+id/dosisDiaria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dosis que tocan al día"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+    android:padding="10dp"
+    android:radius="10dp" />
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <EditText
+        android:id="@+id/frecuencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cada cuanto se tiene que tomar"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+    android:padding="10dp"
+    android:radius="10dp" />
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <EditText
+        android:id="@+id/lapso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="El lapso que se tomará"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+    android:padding="10dp"
+    android:radius="10dp" />
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <EditText
+        android:id="@+id/horaPrimeraDosis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Registrar hora de la primera dosis"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+    android:padding="10dp"
+    android:radius="10dp" />
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <EditText
+        android:id="@+id/descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción (Opcional)"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+    android:padding="10dp"
+    android:radius="10dp" />
+
+    <Button
+        android:id="@+id/registrarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:fontFamily="sans-serif"
+        android:textColor="#FFFFFF"
+    android:backgroundTint="#018DFE"
+    android:layout_gravity="center"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:radius="50dp" />
+
+    <Button
+        android:id="@+id/registrosButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registros"
+        android:fontFamily="sans-serif"
+        android:textColor="#FFFFFF"
+    android:backgroundTint="#018DFE"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:radius="50dp" />
+    <Button
+        android:id="@+id/porFotoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suba su foto"
+        android:fontFamily="sans-serif"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#018DFE"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+</LinearLayout>

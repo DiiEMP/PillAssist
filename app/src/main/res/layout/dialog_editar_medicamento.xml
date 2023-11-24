@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/idMedicamentoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID de Medicamento" />
+
+    <EditText
+        android:id="@+id/nombreMedicamentoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Medicamento" />
+
+    <EditText
+        android:id="@+id/dosisDiariaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dosis que tocan al día" />
+
+    <EditText
+        android:id="@+id/frecuenciaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cada cuanto se tiene que tomar" />
+
+    <EditText
+        android:id="@+id/lapsoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="El lapso que se tomara" />
+
+    <EditText
+        android:id="@+id/horaPrimeraDosisEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Registrar hora de la primera dosis" />
+
+    <EditText
+        android:id="@+id/descripcionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción (Opcional)" />
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<!-- res/layout/list_item_medicamento.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/nombreMedicamentoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del Medicamento"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/dosisDiariaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dosis Diaria"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/lapsoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lapso"
+        android:textSize="16sp"/>
+
+    <!-- Add more TextViews or UI elements as needed -->
+
+</LinearLayout>
