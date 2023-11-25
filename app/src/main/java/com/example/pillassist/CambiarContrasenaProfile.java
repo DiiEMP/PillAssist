@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -89,7 +92,20 @@ public class CambiarContrasenaProfile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-
+                        String id = dataSnapshot.child("idUser").getValue(String.class);
+                        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("Usuarios").child(id);
+                        userReference.child("contrasenia").setValue(confirmnewpswd).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    // El dato 'contrasenia' fue actualizado exitosamente en la base de datos
+                                    Log.d("ACTUALIZACION", "Contraseña actualizada exitosamente en la base de datos");
+                                } else {
+                                    // Ocurrió un error al actualizar el dato en la base de datos
+                                    Log.e("ACTUALIZACION", "Error al actualizar la contraseña en la base de datos", task.getException());
+                                }
+                            }
+                        });
                     }
                 }
             }

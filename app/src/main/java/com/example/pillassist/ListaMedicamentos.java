@@ -4,18 +4,29 @@ public class ListaMedicamentos {
     private  String idLista;
     private  String nombreLista;
     private  String cadaCuandoLista;
+    private String requestCode;
     private  String idUsuario;
     private  String descripcionLista;
     private  String dosisLista;
     public ListaMedicamentos(){}
 
-    public ListaMedicamentos(String idLista, String nombreLista, String cadaCuandoLista, String idUsuario, String descripcionLista, String dosisLista) {
+
+    public ListaMedicamentos(String idLista, String nombreLista, String cadaCuandoLista, String idUsuario, String descripcionLista, String dosisLista, String requestCode) {
         this.idLista = idLista;
         this.nombreLista = nombreLista;
         this.cadaCuandoLista = cadaCuandoLista;
         this.idUsuario = idUsuario;
         this.descripcionLista = descripcionLista;
         this.dosisLista = dosisLista;
+        this.requestCode = requestCode;
+    }
+
+    public String getRequestCode() {
+        return requestCode;
+    }
+
+    public void setRequestCode(String requestCode) {
+        this.requestCode = requestCode;
     }
 
     public String getIdLista() {

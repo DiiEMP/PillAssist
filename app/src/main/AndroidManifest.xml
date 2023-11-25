@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PillAssist"
         tools:targetApi="31">
+        <activity
+            android:name=".ModificarListMedicamento"
+            android:exported="false" />
         <activity
             android:name=".CrearAlarma"
             android:exported="false" />
@@ -50,14 +53,14 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.SET_ALARM"/>
+                <action android:name="android.intent.action.SET_ALARM" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <meta-data
                 android:name="android:app.lib_name"
-                android:value=""
-                />
+                android:value="" />
         </activity>
     </application>
 

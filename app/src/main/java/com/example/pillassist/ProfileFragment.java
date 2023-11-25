@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
@@ -137,11 +138,12 @@ public class ProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-
+                        String id = dataSnapshot.child("idUser").getValue(String.class);
                         nomApe.setText(dataSnapshot.child("name").getValue(String.class));
                         correoE.setText(dataSnapshot.child("email").getValue(String.class));;
                         nacimiento.setText(dataSnapshot.child("fechaNac").getValue(String.class));;
-                        edad.setText(dataSnapshot.child("edad").getValue(String.class));;
+                        edad.setText(dataSnapshot.child("edad").getValue(String.class));
+                        agregarPhoto(id);
 
                     }
                 } else {
@@ -157,6 +159,34 @@ public class ProfileFragment extends Fragment {
         });
 
 
+    }
+
+    private void agregarPhoto(String id) {
+        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("Usuarios").child(id);
+        userReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    if (snapshot.hasChild("Photo")) {
+                        // El campo "photo" existe
+                        String photoUrl = snapshot.child("Photo").getValue(String.class);
+                        Glide.with(getActivity()).load(photoUrl).into(sinImagen);
+                        Log.d("EXISTE", "La URL de la foto es: " + photoUrl);
+                    } else {
+                        // El campo "photo" no existe
+                        Log.d("NO EXISTE", "El campo 'photo' no existe para este usuario");
+                    }
+                }
+                else {
+                    Toast.makeText(getActivity(), "Usuario no Encontrado", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override

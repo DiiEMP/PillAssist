@@ -98,6 +98,7 @@ public class ListFragment extends Fragment {
     }
 
     private void mostrarListaMedicamentos() {
+        String idListM;
         databaseReference2.orderByChild("idUsuario").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -105,13 +106,24 @@ public class ListFragment extends Fragment {
                     for (DataSnapshot objSnapshot: snapshot.getChildren()){
                         ListaMedicamentos list = objSnapshot.getValue(ListaMedicamentos.class);
                         Log.d("DATOS:", list.getIdUsuario());
-                        lista.add(new ListaMedicamentos(list.getIdLista(),list.getNombreLista(),list.getCadaCuandoLista(),list.getIdUsuario(),list.getDescripcionLista(),list.getDosisLista()));
+                        lista.add(new ListaMedicamentos(list.getIdLista(),list.getNombreLista(),list.getCadaCuandoLista(),list.getIdUsuario(),list.getDescripcionLista(),list.getDosisLista(), list.getRequestCode()));
+
                     }
                 listaAdaptador = new ListaAdaptador(lista);
                 recyclerViewLista.setAdapter(listaAdaptador);
                 listaAdaptador.setOnItemClickListener(new ListaAdaptador.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
+                        Intent intent = new Intent(getActivity(), ModificarListMedicamento.class);
+                        ListaMedicamentos listaMedicamentos = lista.get(position);
+                        intent.putExtra("idList",listaMedicamentos.getIdLista());
+                        intent.putExtra("nombre",listaMedicamentos.getNombreLista());
+                        intent.putExtra("cadaCuando",listaMedicamentos.getCadaCuandoLista());
+                        intent.putExtra("idUsuario",listaMedicamentos.getIdUsuario());
+                        intent.putExtra("descripcion",listaMedicamentos.getDescripcionLista());
+                        intent.putExtra("dosis",listaMedicamentos.getDosisLista());
+                        intent.putExtra("requestCode",listaMedicamentos.getRequestCode());
+                        startActivity(intent);
 
                     }
                 });
